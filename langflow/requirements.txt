@@ -1,6 +1,6 @@
+langflow
 Flask              # Flask web framework for creating the API
 transformers      # Hugging Face Transformers library for LLMs
 torch              # PyTorch, required for running models
-torchvision        # TorchVision, useful if working with vision models in PyTorch
-langflow
+torchvision        
 gunicorn         # WSGI HTTP Server for Python, optional but recommended for production

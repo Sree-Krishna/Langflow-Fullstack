@@ -36,5 +36,5 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
         # Send the response back to the WebSocket client
         await self.send(text_data=json.dumps({
-            'response': response.json().get('response', 'Error contacting Langflow')
+            'message': response.json().get('message', 'Error contacting Langflow')
         }))

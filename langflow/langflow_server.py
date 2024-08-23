@@ -40,7 +40,7 @@ def predict():
                             tweaks=TWEAKS)
         response = result[0].outputs[0].messages[0].message
         # Return the generated response
-        return jsonify({'response': response})
+        return jsonify({'message': response})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 

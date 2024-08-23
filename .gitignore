@@ -3,3 +3,4 @@ __pycache__
 langflow/local_cache
 langflow/logs
 user1.json
+react-chat/node_modules

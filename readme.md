@@ -58,8 +58,8 @@ docker build -t your-docker-username/langflow-service:latest .
 Push the updated images to your Docker registry:
 
 ```bash
-docker push your-docker-username/langflow-service:latest
 docker push your-docker-username/django-backend:latest
+docker push your-docker-username/langflow-service:latest
 ```
 
 ### 8. Deploy the Stack Using Docker Compose
@@ -67,4 +67,23 @@ Deploy the stack using Docker Compose:
 
 ```bash
 docker stack deploy -c docker-compose.yml mystack
+```
+
+## Communicate with server
+
+### Get new tokens for existing user
+
+In the body include {"username":"your username", "password":"your password"}
+```bash
+http://localhost:8000/api/token/
+```
+
+In the body include {"refresh":"token"}
+```bash
+http://localhost:8000/api/token/refresh/
+```
+### Start react app
+In the react-chat folder 
+```bash
+npm start
 ```

@@ -2,6 +2,7 @@ requests
 django
 djangorestframework
 djangorestframework-simplejwt
+django-cors-headers
 channels==3.0.5
 
 
