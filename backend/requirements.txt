@@ -1,0 +1,7 @@
+requests
+django
+djangorestframework
+djangorestframework-simplejwt
+channels==3.0.5
+
+

@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  # Django Backend Service
+  web:
+    image: sreekrishnasuresh/django-backend:latest  # Reference the pre-built image
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=backend.settings  # Adjust based on your settings module
+      - LANGFLOW_URL=http://langflow:8501  # URL for the Langflow service
+    networks:
+      - webnet
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - langflow  # Ensure Django starts after Langflow
+
+  # Langflow Service
+  langflow:
+    image: sreekrishnasuresh/langflow-service:latest  # Reference the pre-built image
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+    ports:
+      - "8501:8501"
+    networks:
+      - webnet
+    volumes:
+      - ./langflow:/langflow
+
+networks:
+  webnet:
+    driver: overlay
