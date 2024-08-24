@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { FaPowerOff } from 'react-icons/fa'; 
 import PopupMessage from './PopupMessage/PopupMessage';  // Adjust if necessary
 import './App.css';
 
@@ -48,7 +49,7 @@ function App() {
 
     ws.current.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      setMessages(prev => [...prev, `Bot: ${data.message}`]);
+      setMessages(prev => [...prev, `Sage: ${data.message}`]);
     };
 
     ws.current.onclose = () => {
@@ -113,6 +114,12 @@ function App() {
 
   return (
     <div className="App">
+      {token && (
+        <div className="user-info">
+          <span className="username">{username}</span>
+          <FaPowerOff className="logout-icon" onClick={handleLogout} />
+        </div>
+      )}
       <div className="container">
         {!token ? (
           <form onSubmit={handleLogin} className="login-form">
@@ -139,9 +146,9 @@ function App() {
           </form>
         ) : (
           <div className="chat-container">
-            <button onClick={handleLogout} className="logout-button">
-              Logout
-            </button>
+            <div className="header">
+              <h1 className="app-title">Wisdom Bot</h1> {/* App title */}
+            </div>
             <div className="chatbox">
               {messages.map((msg, index) => (
                 <div key={index} className="chat-message">
@@ -154,7 +161,7 @@ function App() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Type your message..."
+                placeholder="Ask what you seek ..."
               />
               <button type="submit" disabled={!connected} className="send-button">
                 <span>&#8593;</span> {/* Up arrow icon */}

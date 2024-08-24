@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
 code {
@@ -18,4 +19,13 @@ html, body, #root {
   width: 100%;
   margin: 0;
   padding: 0;
+  background-image: url("calm.jpg"); /* Replace with the path to your image */
+  background-size: cover; /* Ensure the image covers the whole background */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw; /* Ensure the body takes the full viewport width */
+  overflow: hidden; /* Prevent any scrolling */
 }
