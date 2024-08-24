@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { FaPowerOff } from 'react-icons/fa'; 
+import { FaPowerOff, FaPaperPlane } from 'react-icons/fa'; 
 import PopupMessage from './PopupMessage/PopupMessage';  // Adjust if necessary
 import './App.css';
 
@@ -164,7 +164,7 @@ function App() {
                 placeholder="Ask what you seek ..."
               />
               <button type="submit" disabled={!connected} className="send-button">
-                <span>&#8593;</span> {/* Up arrow icon */}
+                <FaPaperPlane />
               </button>
             </form>
           </div>
